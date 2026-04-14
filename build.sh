@@ -1,0 +1,1 @@
+encore build docker filter-smclick:latest

@@ -1,0 +1,14 @@
+services:
+  backend:
+    image: filter-smclick:latest
+    ports:
+      - "${PORT}:4000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      SMCLICK_API_URL: ${SMCLICK_API_URL}
+      SMCLICK_API_KEY: ${SMCLICK_API_KEY}
+      SMCLICK_INSTANCE_ID: ${SMCLICK_INSTANCE_ID}
+      SMCLICK_ALLOWED_DEPARTMENTS: ${SMCLICK_ALLOWED_DEPARTMENTS}
+      URL_REQUEST: ${URL_REQUEST}

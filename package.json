@@ -5,11 +5,15 @@
   "description": "Encore Typescript Starter",
   "license": "MPL-2.0",
   "type": "module",
+  "scripts": {
+    "dev": "env $(cat .env) encore run"
+  },
   "devDependencies": {
     "@types/node": "^20.5.7",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "encore.dev": "^1.56.5"
+    "encore.dev": "^1.56.5",
+    "zod": "^4.3.6"
   }
 }
