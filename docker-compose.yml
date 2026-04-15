@@ -2,7 +2,7 @@ services:
   backend:
     image: filter-smclick:latest
     ports:
-      - "${PORT}:4000"
+      - "${PORT}:${PORT}"
     env_file:
       - .env
     environment:
