@@ -31,6 +31,7 @@ export interface Contact {
 
 export interface Message {
   id: string;
+  type: string;
   content: MessageContent;
   from_me: boolean;
 }
