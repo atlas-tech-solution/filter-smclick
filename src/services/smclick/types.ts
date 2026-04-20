@@ -20,7 +20,7 @@ export interface Department {
 }
 
 export interface MessageContent {
-  text: string;
+  text?: string;
 }
 
 export interface Contact {
