@@ -2,7 +2,7 @@ import { env } from "@/config/env";
 import { NewChatMessageEvent } from "@/services/smclick/types";
 import { APIError,  } from "encore.dev/api";
 
-const INSTANCE = env.SMCLICK_INSTANCE_ID;
+const INSTANCES = env.SMCLICK_INSTANCES_ID;
 const ALLOWED_DEPARTMENTS = env.SMCLICK_ALLOWED_DEPARTMENTS;
 
 export const WebhookMiddleware = (body: NewChatMessageEvent) => {
@@ -11,16 +11,13 @@ export const WebhookMiddleware = (body: NewChatMessageEvent) => {
   const fromMe = body.infos.message.from_me;
   const attendant = body.infos.chat.attendant;
   const chatId = body.infos.chat.id;
-  const isText = body.infos.message.type === "text";
 
-  if (!instanceId || instanceId !== INSTANCE)
+  if (!instanceId || !INSTANCES.includes(instanceId))
     throw APIError.invalidArgument("Unexpected `instance_id`, skipping...");
   if (!!department && !ALLOWED_DEPARTMENTS.includes(department))
     throw APIError.invalidArgument("Unexpected `department_id`, skipping... departament=" + department);
   if (!!attendant?.length)
     throw APIError.invalidArgument("There is an attendant on this chat, skipping... chat=" + chatId);
-  if (!isText)
-    throw APIError.invalidArgument("Message is not a text, skipping...");
   if (fromMe)
     throw APIError.invalidArgument("Message `from_me`, skipping...");
 }
