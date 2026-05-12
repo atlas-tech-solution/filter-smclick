@@ -29,17 +29,19 @@ export interface Contact {
   whatsapp_id?: string;
 }
 
+export interface QuotedMessage {
+  id: string;
+  type: string;
+  content: MessageContent;
+  from_me: boolean;
+}
+
 export interface Message {
   id: string;
   type: string;
   content: MessageContent;
   from_me: boolean;
-  quoted: {
-    id: string;
-    type: string;
-    content: MessageContent;
-    from_me: boolean;
-  } | null;
+  quoted: QuotedMessage | null;
 }
 
 export interface Chat {
