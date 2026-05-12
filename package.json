@@ -9,11 +9,11 @@
     "dev": "env $(cat .env) encore run"
   },
   "devDependencies": {
-    "@types/node": "^20.5.7",
-    "typescript": "^5.2.2"
+    "@types/node": "^25.7.0",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
-    "encore.dev": "^1.56.6",
-    "zod": "^4.3.6"
+    "encore.dev": "^1.57.3",
+    "zod": "^4.4.3"
   }
 }
