@@ -31,9 +31,9 @@ export interface Contact {
 
 export interface QuotedMessage {
   id: string;
-  type: string;
   content: MessageContent;
   from_me: boolean;
+  sent_by: string | null;
 }
 
 export interface Message {
