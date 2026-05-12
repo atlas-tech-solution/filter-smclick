@@ -34,7 +34,7 @@ export interface Message {
   type: string;
   content: MessageContent;
   from_me: boolean;
-  quoted?: Omit<Message, 'quoted'>;
+  quoted: Omit<Message, 'quoted'> | null;
 }
 
 export interface Chat {
