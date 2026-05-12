@@ -20,7 +20,7 @@ export interface Department {
 }
 
 export interface MessageContent {
-  text?: string;
+  text?: string | null;
 }
 
 export interface Contact {
@@ -38,7 +38,7 @@ export interface QuotedMessage {
 
 export interface Message {
   id: string;
-  type: string;
+  type: 'text' | 'file' | string;
   content: MessageContent;
   from_me: boolean;
   quoted: QuotedMessage | null;
